@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  namespace :v1 do
-    resources :companies, only: :index
+  constraints subdomain: 'api' do
+    namespace :v1 do
+      resources :companies, only: :index
+    end
   end
 end
