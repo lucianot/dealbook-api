@@ -10,8 +10,7 @@ describe 'GET /companies' do
     expect(response.status).to eq 200
     expect(response.body).not_to be_empty
 
-    body = JSON.parse(response.body)
-    names = body.map { |m| m['name'] }
+    names = json.map { |m| m[:name] }
     expect(names).to match_array([magnetis.name, rock_content.name])
   end
 end
