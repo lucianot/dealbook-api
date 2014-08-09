@@ -9,6 +9,11 @@ group :development, :test do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'rspec-rails', '~> 3.0.2'
+  gem 'pry'
+end
+
+group :test do
+  gem 'factory_girl_rails'
 end
 
 
