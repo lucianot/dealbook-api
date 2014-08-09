@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :companies, only: :index
+  namespace :v1 do
+    resources :companies, only: :index
+  end
 end
