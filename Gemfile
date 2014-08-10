@@ -5,6 +5,10 @@ gem 'rails', '4.1.4'
 gem 'rails-api'
 gem 'pg'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'spring'
   gem 'spring-commands-rspec', '~> 1.0.2'
