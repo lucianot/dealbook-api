@@ -3,17 +3,17 @@ ruby '2.1.2'
 
 gem 'rails', '4.1.4'
 gem 'rails-api'
-gem 'sqlite3'
+gem 'pg'
 
 group :development, :test do
   gem 'spring'
-  gem 'spring-commands-rspec'
+  gem 'spring-commands-rspec', '~> 1.0.2'
   gem 'rspec-rails', '~> 3.0.2'
   gem 'pry'
 end
 
 group :test do
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '~> 4.4.1'
 end
 
 
