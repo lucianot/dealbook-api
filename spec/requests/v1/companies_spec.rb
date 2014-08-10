@@ -5,7 +5,7 @@ describe 'GET /companies' do
     magnetis = FactoryGirl.create :company, name: 'Magnetis'
     rock_content = FactoryGirl.create :company, name: 'RockContent'
 
-    get 'http://api.example.com/v1/companies', {}, { 'Accept' => 'application/json' }
+    get '/v1/companies', {}, { 'Accept' => 'application/json' }
 
     expect(response.status).to eq 200
     expect(response.body).not_to be_empty
