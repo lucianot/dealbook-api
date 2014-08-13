@@ -25,4 +25,45 @@ describe 'companies requests' do
       expect(json[:name]).to eq magnetis.name
     end
   end
+
+  describe 'POST /companies' do
+    let(:company_name) { 'Conta Azul' }
+    let(:request_headers) do
+      {
+        "Accept" => "application/json",
+        "Content-Type" => "application/json"
+      }
+    end
+
+    context 'with valid params' do
+      let(:company_params) do
+        {
+          company: { name: company_name }
+        }.to_json
+      end
+
+      it 'creates a new company' do
+        post "/1/companies", company_params, request_headers
+
+        expect(response.status).to eq 201
+        expect(response.body).not_to be_empty
+        expect(json[:name]).to eq company_name
+      end
+    end
+
+    context 'with invalid params' do
+      let(:company_params) do
+        {
+          company: { name: nil }
+        }.to_json
+      end
+
+      it 'does not create a new company with invalid params' do
+        post "/1/companies", company_params, request_headers
+
+        expect(response.status).to eq 422
+        expect(response.content_type).to eq "application/json"
+      end
+    end
+  end
 end
