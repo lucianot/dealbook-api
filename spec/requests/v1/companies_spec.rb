@@ -66,4 +66,45 @@ describe 'companies requests' do
       end
     end
   end
+
+  describe 'PATCH /companies/:id' do
+    let(:company_name) { 'Conta Azul' }
+    let(:request_headers) do
+      {
+        "Accept" => "application/json",
+        "Content-Type" => "application/json"
+      }
+    end
+
+    context 'with valid params' do
+      let(:company_params) do
+        {
+          company: { name: company_name }
+        }.to_json
+      end
+
+      it 'creates a new company' do
+        patch "/1/companies/#{magnetis.id}", company_params, request_headers
+
+        expect(response.status).to eq 200
+        expect(response.body).not_to be_empty
+        expect(magnetis.reload.name).to eq company_name
+      end
+    end
+
+    context 'with invalid params' do
+      let(:company_params) do
+        {
+          company: { name: nil }
+        }.to_json
+      end
+
+      it 'does not update a new company with invalid params' do
+        patch "/1/companies/#{magnetis.id}", company_params, request_headers
+
+        expect(response.status).to eq 422
+        expect(response.content_type).to eq "application/json"
+      end
+    end
+  end
 end

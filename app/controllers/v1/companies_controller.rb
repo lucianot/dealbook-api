@@ -19,6 +19,15 @@ module V1
       end
     end
 
+    def update
+      company = Company.find(params[:id])
+      if company.update(company_params)
+        render json: company, status: 200
+      else
+        render json: company.errors, status: 422
+      end
+    end
+
     private
       def company_params
         params.require(:company).permit(:name)

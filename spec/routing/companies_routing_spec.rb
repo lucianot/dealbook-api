@@ -22,4 +22,12 @@ describe 'routes for companies', type: :routing do
       action: 'create'
     )
   end
+
+  it 'routes PATCH /companies/:id to the companies controller' do
+    expect(:patch => '/1/companies/42').to route_to(
+      controller: 'v1/companies',
+      action: 'update',
+      id: '42'
+    )
+  end
 end
