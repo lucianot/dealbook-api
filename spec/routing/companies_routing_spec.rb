@@ -30,4 +30,12 @@ describe 'routes for companies', type: :routing do
       id: '42'
     )
   end
+
+  it 'routes DELETE /companies/:id to the companies controller' do
+    expect(:delete => '/1/companies/42').to route_to(
+      controller: 'v1/companies',
+      action: 'destroy',
+      id: '42'
+    )
+  end
 end

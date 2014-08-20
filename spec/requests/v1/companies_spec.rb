@@ -58,7 +58,7 @@ describe 'companies requests' do
         }.to_json
       end
 
-      it 'does not create a new company with invalid params' do
+      it 'does not create a new company' do
         post "/1/companies", company_params, request_headers
 
         expect(response.status).to eq 422
@@ -83,7 +83,7 @@ describe 'companies requests' do
         }.to_json
       end
 
-      it 'creates a new company' do
+      it 'updates an existing company' do
         patch "/1/companies/#{magnetis.id}", company_params, request_headers
 
         expect(response.status).to eq 200
@@ -99,11 +99,22 @@ describe 'companies requests' do
         }.to_json
       end
 
-      it 'does not update a new company with invalid params' do
+      it 'does not update an existing company' do
         patch "/1/companies/#{magnetis.id}", company_params, request_headers
 
         expect(response.status).to eq 422
         expect(response.content_type).to eq "application/json"
+      end
+    end
+  end
+
+  describe 'DELETE /companies/:id' do
+    context 'with valid params' do
+      it 'deletes an existing company' do
+        delete "/1/companies/#{magnetis.id}"
+
+        expect(response.status).to eq 204
+        expect{ magnetis.reload }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end

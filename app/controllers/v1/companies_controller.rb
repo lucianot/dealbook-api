@@ -28,6 +28,12 @@ module V1
       end
     end
 
+    def destroy
+      company = Company.find(params[:id])
+      company.destroy
+      head 204
+    end
+
     private
       def company_params
         params.require(:company).permit(:name)
