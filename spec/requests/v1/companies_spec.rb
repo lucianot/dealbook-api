@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'companies requests' do
-  let!(:magnetis)     { FactoryGirl.create :company, name: 'Magnetis' }
+  let!(:magnetis)     { FactoryGirl.create :complete_company, name: 'Magnetis' }
   let!(:rock_content) { FactoryGirl.create :company, name: 'RockContent' }
 
   describe 'GET /companies' do
@@ -23,6 +23,10 @@ describe 'companies requests' do
       expect(response.status).to eq 200
       expect(response.body).not_to be_empty
       expect(json[:name]).to eq magnetis.name
+      expect(json[:description]).to eq magnetis.description
+      expect(json[:website]).to eq magnetis.website
+      expect(json[:markets]).to eq magnetis.markets
+      expect(json[:location]).to eq magnetis.location
     end
   end
 
