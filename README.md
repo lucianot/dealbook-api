@@ -24,8 +24,9 @@ The simplest thing you can do with a Trello resource URI is GET it. (When using 
 
 ### GET /1/companies
   * Examples
+ 
+  `https://api.dealbook.co/1/companies`
   ```
-  https://api.dealbook.co/1/companies
   [{
     "id":1,
     "name":"Magnetis",
@@ -49,8 +50,9 @@ The simplest thing you can do with a Trello resource URI is GET it. (When using 
 
 ### GET /1/companies/[company id]
   * Examples
+ 
+  `https://api.dealbook.co/1/companies/1`
   ```
-  https://api.dealbook.co/1/companies/1
   {
     "id":1,
     "name":"Magnetis",
@@ -77,8 +79,9 @@ The simplest thing you can do with a Trello resource URI is GET it. (When using 
   * location (optional)
     * Valid Values: a string with a length from 0 to 16384
 * Examples
+
+  `https://api.dealbook.co/1/companies/3?name='ContaAzul'&website='contaazul.com'`
   ```
-  https://api.dealbook.co/1/companies/3?name='ContaAzul'&website='contaazul.com'
   {
     "id":3,
     "name":"ContaAzul",
@@ -101,8 +104,9 @@ The simplest thing you can do with a Trello resource URI is GET it. (When using 
   * location (optional)
     * Valid Values: a string with a length from 0 to 16384
 * Examples
+
+  `https://api.dealbook.co/1/companies/3?description='ContaAzul is an online bookkeeping service for SMBs'`
   ```
-  https://api.dealbook.co/1/companies/3?description='ContaAzul is an online bookkeeping service for SMBs'
   {
     "id":3,
     "name":"ContaAzul",
