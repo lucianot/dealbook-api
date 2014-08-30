@@ -72,7 +72,7 @@ describe 'companies requests' do
   end
 
   describe 'PATCH /companies/:id' do
-    let(:company_name) { 'Conta Azul' }
+    let(:company_website) { 'http://magnet.is' }
     let(:request_headers) do
       {
         "Accept" => "application/json",
@@ -83,7 +83,7 @@ describe 'companies requests' do
     context 'with valid params' do
       let(:company_params) do
         {
-          company: { name: company_name }
+          company: { website: company_website }
         }.to_json
       end
 
@@ -92,7 +92,7 @@ describe 'companies requests' do
 
         expect(response.status).to eq 200
         expect(response.body).not_to be_empty
-        expect(magnetis.reload.name).to eq company_name
+        expect(magnetis.reload.website).to eq company_website
       end
     end
 

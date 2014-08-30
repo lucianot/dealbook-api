@@ -20,6 +20,7 @@ module V1
     end
 
     def update
+      puts company_params
       company = Company.find(params[:id])
       if company.update(company_params)
         render json: company, status: 200

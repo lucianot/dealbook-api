@@ -16,7 +16,7 @@ describe 'routes for companies', type: :routing do
     )
   end
 
-  it 'routes PUT /companies to the companies controller' do
+  it 'routes POST /companies to the companies controller' do
     expect(:post => '/1/companies').to route_to(
       controller: 'v1/companies',
       action: 'create'
