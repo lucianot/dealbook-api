@@ -109,13 +109,11 @@ describe 'companies requests' do
   end
 
   describe 'DELETE /companies/:id' do
-    context 'with valid params' do
-      it 'deletes an existing company' do
-        delete "/1/companies/#{magnetis.id}"
+    it 'deletes an existing company' do
+      delete "/1/companies/#{magnetis.id}"
 
-        expect(response.status).to eq 204
-        expect{ magnetis.reload }.to raise_error(ActiveRecord::RecordNotFound)
-      end
+      expect(response.status).to eq 204
+      expect{ magnetis.reload }.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 end
