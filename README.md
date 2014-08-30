@@ -80,12 +80,11 @@ The simplest thing you can do with a Trello resource URI is GET it. (When using 
     * Valid Values: a string with a length from 0 to 16384
 * Examples
 
-  `https://api.dealbook.co/1/companies/3?name='ContaAzul'&website='contaazul.com'`
+  `curl -X POST -d 'company[name]=ContaAzul' http://api.dealbook.co/1/companies`
   ```
   {
-    "id":3,
+    "id":2,
     "name":"ContaAzul",
-    "website":"contaazul.com"
     "created_at":"2014-08-10T22:17:20.080Z",
     "updated_at":"2014-08-10T22:17:20.080Z"
   }
@@ -105,10 +104,10 @@ The simplest thing you can do with a Trello resource URI is GET it. (When using 
     * Valid Values: a string with a length from 0 to 16384
 * Examples
 
-  `https://api.dealbook.co/1/companies/3?description='ContaAzul is an online bookkeeping service for SMBs'`
+  `curl -X PATCH -d 'company[website]=contaazul.com' http://api.dealbook.co/1/companies/2`
   ```
   {
-    "id":3,
+    "id":2,
     "name":"ContaAzul",
     "description":"ContaAzul is an online bookkeeping service for SMBs"
     "website":"contaazul.com"
@@ -117,4 +116,8 @@ The simplest thing you can do with a Trello resource URI is GET it. (When using 
   }
 
 ### DELETE /1/companies/[company id]
+
+* Examples
+
+  `curl -X DELETE http://api.dealbook.co/1/companies/2`
 
