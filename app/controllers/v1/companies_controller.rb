@@ -36,7 +36,7 @@ module V1
 
     private
       def company_params
-        params.require(:company).permit(:name)
+        params.require(:company).permit(:name, :description, :website, :markets, :location)
       end
   end
 end
